@@ -9,29 +9,33 @@ Document Layout & Text Understanding System using YOLO + Qwen2-VL
 
 이 시스템은
 
-YOLOv12l 모델로 문서 레이아웃을 탐지하고
+- YOLOv12l 모델로 문서 레이아웃을 탐지하고
 
-Qwen2.5-VL-3B-Instruct 모델을 활용해 각 영역의 텍스트를 OCR 및 의미 단위로 추출하며
+- Qwen2.5-VL-3B-Instruct 모델을 활용해 각 영역의 텍스트를 OCR 및 의미 단위로 추출하며
 
-pytesseract를 보조 OCR로 사용하여 오류 상황에도 안정적으로 텍스트를 인식함.
+- pytesseract를 보조 OCR로 사용하여 오류 상황에도 안정적으로 텍스트를 인식함.
 
 📁 본 프로젝트는 삼성전자 AI 경진대회 “문서 의도 해석 AI” 코드 제출형 과제를 위해 개발되었음.
 
 🧩 주요 기능
-기능	설명
-문서 레이아웃 탐지	YOLOv12l 모델을 활용하여 문서 내 title, subtitle, text, image, table, equation 등 6개 요소 탐지
-OCR 텍스트 인식	Qwen2-VL 멀티모달 LLM으로 이미지 내 텍스트를 인식하고 자연어 형태로 출력
-백업 OCR	모델 로딩 실패나 에러 발생 시 pytesseract 기반 OCR로 자동 전환
-PDF/PPTX 변환	LibreOffice + pdf2image를 활용하여 모든 문서 포맷을 이미지로 변환
-시각화 기능	감지된 요소의 바운딩박스 및 텍스트 영역을 이미지로 시각화
-자동 제출 파일 생성	추론 결과를 submission.csv 형식으로 자동 저장 (평가 서버 호환)
+| 기능              | 설명                                                                                          |
+| --------------- | ------------------------------------------------------------------------------------------- |
+| **문서 레이아웃 탐지**  | YOLOv12l 모델을 활용하여 문서 내 `title`, `subtitle`, `text`, `image`, `table`, `equation` 등 6개 요소 탐지 |
+| **OCR 텍스트 인식**  | Qwen2-VL 멀티모달 LLM으로 이미지 내 텍스트를 인식하고 자연어 형태로 출력                                              |
+| **백업 OCR**      | 모델 로딩 실패나 에러 발생 시 pytesseract 기반 OCR로 자동 전환                                                 |
+| **PDF/PPTX 변환** | LibreOffice + pdf2image를 활용하여 모든 문서 포맷을 이미지로 변환                                             |
+| **시각화 기능**      | 감지된 요소의 바운딩박스 및 텍스트 영역을 이미지로 시각화                                                            |
+| **자동 제출 파일 생성** | 추론 결과를 `submission.csv` 형식으로 자동 저장 (평가 서버 호환)                                               |
+
 🛠️ 기술 스택
-구분	사용 기술
-언어	Python 3.10
-딥러닝 프레임워크	PyTorch, Transformers, Ultralytics YOLO
-OCR 및 비전 처리	Qwen2-VL, pytesseract, pdf2image, PIL
-환경	CUDA (T4 GPU, 16GB VRAM), 오프라인 환경
-기타	LibreOffice (PPTX → PDF 변환), Pandas, Subprocess
+| 구분              | 사용 기술                                           |
+| --------------- | ----------------------------------------------- |
+| **언어**          | Python 3.10                                     |
+| **딥러닝 프레임워크**   | PyTorch, Transformers, Ultralytics YOLO         |
+| **OCR 및 비전 처리** | Qwen2-VL, pytesseract, pdf2image, PIL           |
+| **환경**          | CUDA (T4 GPU, 16GB VRAM), 오프라인 환경               |
+| **기타**          | LibreOffice (PPTX → PDF 변환), Pandas, Subprocess |
+
 📂 프로젝트 구조
 ```
 📦 project_root
@@ -99,3 +103,5 @@ GPU 메모리(OOM) 및 추론 시간 최적화를 위해 이미지 크기, confi
 OCR 품질 향상을 위해 pytesseract와 Qwen-VL의 결과를 비교 및 조합하며 모델 안정성을 확보함.
 
 문서의 시각적 구조와 의미를 AI가 이해하도록 하는 기반 기술을 실제 구현 경험으로 체득함.
+
+

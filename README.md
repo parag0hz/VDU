@@ -42,8 +42,8 @@ OCR 및 비전 처리	Qwen2-VL, pytesseract, pdf2image, PIL
 │   └── test/                           # 입력 문서(pdf, pptx, jpg 등)
 ├── output/
 │   └── submission.csv                  # 추론 결과 (대회 제출 파일)
-├── script.py                            # 메인 추론 스크립트
-└── requirements.txt                     # 패키지 의존성
+├── script.py                           # 메인 추론 스크립트
+└── requirements.txt                    # 패키지 의존성
 
 🚀 실행 방법
 1️⃣ 환경 세팅
@@ -67,7 +67,7 @@ model/
 python script.py
 
 
-결과 파일
+결과 파일 경로
 ./output/submission.csv
 → 평가 서버 제출용 CSV 자동 생성됨.
 

@@ -33,6 +33,7 @@ OCR 및 비전 처리	Qwen2-VL, pytesseract, pdf2image, PIL
 환경	CUDA (T4 GPU, 16GB VRAM), 오프라인 환경
 기타	LibreOffice (PPTX → PDF 변환), Pandas, Subprocess
 📂 프로젝트 구조
+```
 📦 project_root
 ├── model/
 │   ├── yolov12l-doclaynet.pt           # 문서 레이아웃 YOLO 모델
@@ -44,17 +45,21 @@ OCR 및 비전 처리	Qwen2-VL, pytesseract, pdf2image, PIL
 │   └── submission.csv                  # 추론 결과 (대회 제출 파일)
 ├── script.py                           # 메인 추론 스크립트
 └── requirements.txt                    # 패키지 의존성
+```
 
 🚀 실행 방법
 1️⃣ 환경 세팅
+```
 # 가상환경 생성
 conda create -n vdu python=3.10
 conda activate vdu
 
+
 # 필수 패키지 설치
 pip install -r requirements.txt
-
+```
 2️⃣ 모델 파일 구조
+```
 model/
  ├── yolov12l-doclaynet.pt
  └── qwen2.5-vl-3b-instruct/
@@ -62,14 +67,11 @@ model/
       ├── tokenizer/
       ├── processor/
       └── model.safetensors
-
+```
 3️⃣ 추론 실행
+```
 python script.py
-
-
-결과 파일 경로
-./output/submission.csv
-→ 평가 서버 제출용 CSV 자동 생성됨.
+```
 
 🧠 모델 구성
 모델	역할	설명
@@ -86,8 +88,6 @@ YOLO + Qwen2-VL 기반 멀티모달 모델을 활용해 문서 구조와 텍스�
 
 시각화 및 debug 기능을 통해 탐지 정확도 개선 및 오류 분석 용이성을 확보함.
 
-🔍 예시 결과
-원본 문서	탐지 결과
 
 	
 💬 프로젝트 회고
